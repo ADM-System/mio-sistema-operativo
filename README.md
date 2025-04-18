@@ -75,3 +75,33 @@ void keyboard_init(void);
 // Gestione degli interrupt
 void set_idt_entry(int n, uint32_t handler);
 void register_interrupt_handler(int n, void (*handler)(struct registers*));
+
+### Gestione degli Errori
+
+Il sistema implementa la gestione di errori hardware fondamentali:
+
+1. **Divisione per Zero (0)**
+   - Gestisce tentativi di divisione per zero
+   - Mostra messaggio di errore in rosso
+   - Ferma il sistema in modo sicuro
+
+2. **Page Fault (14)**
+   - Gestisce errori di accesso alla memoria
+   - Mostra messaggio di errore dettagliato
+   - Include informazioni sul tipo di errore
+
+3. **Sistema di Logging**
+   - Visualizza messaggi di errore a video
+   - Usa colore rosso per evidenziare gli errori
+   - Include il tipo di errore e il messaggio
+
+4. **Funzioni Principali**
+
+```c
+// Gestione degli errori
+void error_handler(uint32_t error_code, const char* message);
+void print_error(uint32_t error_code, const char* message);
+
+// Gestori specifici
+void divide_by_zero_handler(struct registers* regs);
+void page_fault_handler(struct registers* regs);
