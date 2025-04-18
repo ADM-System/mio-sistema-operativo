@@ -1,5 +1,7 @@
 #ifndef INTERRUPTS_H
 #define INTERRUPTS_H
+#define ERROR_DIVIDE_BY_ZERO 0
+#define ERROR_PAGE_FAULT 14
 
 // Definizione della struttura per l'IDT
 struct idt_entry {
@@ -20,6 +22,10 @@ struct idt_ptr {
 void idt_init(void);
 void set_idt_entry(int n, uint32_t handler);
 void register_interrupt_handler(int n, void (*handler)(struct registers*));
+
+// Funzioni per la gestione degli errori
+void error_handler(uint32_t error_code, const char* message);
+void print_error(uint32_t error_code, const char* message);
 
 // Struttura per i registri salvati durante l'interrotto
 struct registers {
