@@ -1,4 +1,4 @@
-BOOTLOADER=bootloader/boot.asm
+BOOTLOADER=bootloader/bootloader.asm
 BUILD_DIR=build
 OUTPUT=$(BUILD_DIR)/bootloader.bin
 
