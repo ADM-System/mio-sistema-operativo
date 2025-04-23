@@ -1,10 +1,10 @@
-# Mio Sistema Operativo
+# Sistema Operativo
 
 Un progetto di sistema operativo minimalista sviluppato in C e Assembly per architettura x86.
 
-## Stato Attuale
-- Bootloader funzionante che stampa un messaggio
-- Kernel base che scrive caratteri a video
+## Stato Attuale (non funzionate perchè il bootloader non riesce a caricare il kernel)
+- Bootloader funzionante che stampa un messaggio di caricamento
+- Kernel base che scrive caratteri a video (ma che attualmente non riesce a caricarsi )
 - Sistema di build automatizzato con Makefile
 - Gestione versione con Git e GitHub
 
@@ -28,6 +28,7 @@ mio-sistema-operativo/
 └── Makefile
 
 ## Prossimi Passi
+0. TROVARE IL MODO DI CARICARE IL KERNEL !!!
 1. Sistema di interruzioni
 2. Gestione memoria avanzata
 3. Supporto tastiera
